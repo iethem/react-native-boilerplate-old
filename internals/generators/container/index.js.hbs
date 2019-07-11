@@ -9,11 +9,9 @@ import React, { memo } from 'react';
 {{else}}
 import React from 'react';
 {{/if}}
+import { View, Text } from 'react-native';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-{{#if wantHeaders}}
-import { Helmet } from 'react-helmet';
-{{/if}}
 {{#if wantMessages}}
 import { FormattedMessage } from 'react-intl';
 {{/if}}
@@ -23,10 +21,10 @@ import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 
 {{#if wantSaga}}
-import { useInjectSaga } from 'utils/injectSaga';
+import { useInjectSaga } from '../../utils/injectSaga';
 {{/if}}
 {{#if wantActionsAndReducer}}
-import { useInjectReducer } from 'utils/injectReducer';
+import { useInjectReducer } from '../../utils/injectReducer';
 import makeSelect{{properCase name}} from './selectors';
 import reducer from './reducer';
 {{/if}}
@@ -46,17 +44,12 @@ export function {{ properCase name }}() {
   {{/if}}
 
   return (
-    <div>
-    {{#if wantHeaders}}
-      <Helmet>
-        <title>{{properCase name}}</title>
-        <meta name="description" content="Description of {{properCase name}}" />
-      </Helmet>
-    {{/if}}
-    {{#if wantMessages}}
+    <View>
+    {{!-- {{#if wantMessages}}
       <FormattedMessage {...messages.header} />
-    {{/if}}
-    </div>
+    {{/if}} --}}
+      <Text>This is the {{ properCase name }} container!</Text>
+    </View>
   );
 }
 

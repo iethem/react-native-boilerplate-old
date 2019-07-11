@@ -9,6 +9,7 @@ import React, { memo } from 'react';
 {{else}}
 import React from 'react';
 {{/if}}
+import { View, Text } from 'react-native';
 // import PropTypes from 'prop-types';
 // import styled from 'styled-components';
 
@@ -19,11 +20,12 @@ import messages from './messages';
 
 function {{ properCase name }}() {
   return (
-    <div>
-    {{#if wantMessages}}
+    <View>
+    {{!-- {{#if wantMessages}}
       <FormattedMessage {...messages.header} />
-    {{/if}}
-    </div>
+    {{/if}} --}}
+      <Text>This is the {{ properCase name }} component!</Text>
+    </View>
   );
 }
 

@@ -1,20 +1,14 @@
 # Styling (CSS)
 
+## Table of Contents
+
 - [Next Generation CSS](#next-generation-css)
-  - [Linting](#linting)
-  - [sanitize.css](#sanitizecss)
-- [CSS Support](#css-support)
+- [CSS Support](#css-we-support)
 - [styled-components](#styled-components)
 - [Stylesheet](#stylesheet)
 - [CSS Modules](#css-modules)
-  - [Setup](#setup)
-  - [Usage](#usage)
 - [Sass](#sass)
-  - [Setup](#setup-1)
-  - [Usage](#usage-1)
 - [LESS](#less)
-  - [Setup](#setup-2)
-  - [Usage](#usage-2)
 
 ## Next Generation CSS
 
@@ -76,15 +70,17 @@ const Wrapper = styled.section`
 `;
 
 // Use them like any other React component – except they're styled!
-function Button() {
-  return (
-    <Wrapper>
-      <Title>
-        Hello {this.props.name}, this is your first styled component!
-      </Title>
-      ...
-    </Wrapper>
-  );
+class Button extends React.Component {
+  render() {
+    return (
+      <Wrapper>
+        <Title>
+          Hello {this.props.name}, this is your first styled component!
+        </Title>
+        ...
+      </Wrapper>
+    );
+  }
 }
 ```
 
@@ -112,9 +108,11 @@ into a JavaScript:
 import React from 'react';
 import './Button.css'; // Tell Webpack that Button.js uses these styles
 
-function Button() {
-  // You can use them as regular CSS styles
-  return <button className="danger">Click me</button>;
+class Button extends React.Component {
+  render() {
+    // You can use them as regular CSS styles
+    return <button className="danger">Click me</button>;
+  }
 }
 ```
 
@@ -164,9 +162,11 @@ The key difference in CSS Modules is that you import styles to a variable.
 import React from 'react';
 import styles from './Button.css'; // different import compared to stylesheets
 
-function Button() {
-  // different usage to stylesheets
-  return <button className={styles.danger}>Click me</button>;
+class Button extends React.Component {
+  render() {
+    // different usage to stylesheets
+    return <button className={styles.danger}>Click me</button>;
+  }
 }
 ```
 
@@ -216,8 +216,10 @@ $error-color: red;
 import React from 'react';
 import './Button.scss';
 
-function Button() {
-  return <button className="danger">Click me</button>;
+class Button extends React.Component {
+  render() {
+    return <button className="danger">Click me</button>;
+  }
 }
 ```
 
@@ -273,8 +275,10 @@ to look like:
 import React from 'react';
 import './Button.less';
 
-function Button() {
-  return <button className="danger">Click me</button>;
+class Button extends React.Component {
+  render() {
+    return <button className="danger">Click me</button>;
+  }
 }
 ```
 

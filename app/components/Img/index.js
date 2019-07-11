@@ -1,22 +1,20 @@
 /**
  *
- * Img.js
+ * Button
  *
- * Renders an image, enforcing the usage of the alt="" tag
  */
 
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { memo } from 'react';
+import { Image } from 'react-native';
+// import PropTypes from 'prop-types';
+// import styled from 'styled-components';
 
-function Img(props) {
-  return <img className={props.className} src={props.src} alt={props.alt} />;
+const pic = { uri: 'https://octodex.github.com/images/original.png' };
+
+function Img() {
+  return <Image source={pic} style={{ width: 150, height: 150 }} />;
 }
 
-// We require the use of src and alt, only enforced by react in dev mode
-Img.propTypes = {
-  src: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
-  alt: PropTypes.string.isRequired,
-  className: PropTypes.string,
-};
+Img.propTypes = {};
 
-export default Img;
+export default memo(Img);
